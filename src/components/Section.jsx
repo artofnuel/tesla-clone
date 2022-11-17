@@ -1,23 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-// import img1 from '../images/model-y.jpg'
+import Fade from 'react-reveal/Fade'
+
 
 const Section = ({ title, description, bkgImg, leftBtnText, rightBtnText }) => {
     return (
         <Wrap bgImage={bkgImg}>
-            <ItemText>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </ItemText>
-            <Buttons>
-                <BtnGroup>
-                    <LeftBtn>{leftBtnText}</LeftBtn>
-                    {rightBtnText &&
-                        <RightBtn>{rightBtnText}</RightBtn>
-                    }
-                </BtnGroup>
-                <ArrowDwn src='/images/down-arrow.svg' />
-            </Buttons>
+            <Fade top>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </ItemText>
+            </Fade>
+            <Fade top>
+                <Buttons>
+                    <BtnGroup>
+                        <LeftBtn>{leftBtnText}</LeftBtn>
+                        {rightBtnText &&
+                            <RightBtn>{rightBtnText}</RightBtn>
+                        }
+                    </BtnGroup>
+                    <ArrowDwn src='/images/down-arrow.svg' />
+                </Buttons>
+            </Fade>
         </Wrap>
     )
 }
