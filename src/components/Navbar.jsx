@@ -23,14 +23,20 @@ const Navbar = () => {
                 )}
             </Menu>
             <RightMenu>
-                <a href="#">Shop</a>
-                <a href="#">Tesla Account</a>
+                <RightMenuLinks>
+                    <a href="#">Shop</a>
+                    <a href="#">Tesla Account</a>
+                </RightMenuLinks>
                 <MenuIcon onClick={handleNav} />
             </RightMenu>
             <BurgerNav show={nav}>
                 <CloseWrapper>
                     <CLoseIcon onClick={handleNav} />
                 </CloseWrapper>
+                <Account>
+                    <a href="#">Shop</a>
+                    <a href="#">Tesla Account</a>
+                </Account>
                 {cars && cars.map((car, index) =>
                     <a key={index} href="#">{car}</a>
                 )}
@@ -41,7 +47,6 @@ const Navbar = () => {
                 <a href="#">Roadster</a>
                 <a href="#">Semi</a>
                 <a href="#">Charging Stations</a>
-                <a href="#">Test Drive</a>
             </BurgerNav>
         </Container>
     )
@@ -92,6 +97,22 @@ const RightMenu = styled.div`
     }
 `
 
+const RightMenuLinks = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-right: 10px;
+    }
+
+    @media(max-width: 768px) {
+        display: none;
+    }
+`
+
 const MenuIcon = styled(HiOutlineMenu)`
     font-size: 25px;
     cursor: pointer;
@@ -129,4 +150,14 @@ const BurgerNav = styled.div`
 const CloseWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
+`
+
+const Account = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+    display: none;
+    }
+
 `
